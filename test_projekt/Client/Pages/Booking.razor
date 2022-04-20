@@ -1,4 +1,6 @@
-﻿@page "/booking"
+﻿@using test_projekt.Shared.Models;
+
+@page "/booking"
 
 <PageTitle>Booking Side</PageTitle>
 
@@ -8,7 +10,18 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+<p>
+
+    @foreach (var item in Items)
+        {
+            Navn: @item.Navn;
+        }
+
+</p>
+
 @code {
+    private List<Shelter> Items = new List<Shelter>();
+
     private int currentCount = 100;
 
     private void IncrementCount()
