@@ -1,7 +1,7 @@
 ﻿using blazor_modul_13_14.Shared.Models;
 namespace blazor_modul_13_14.Client.Services;
 
-public interface IShoppingService
+public interface IBookingService
 {
 
     Task<ShoppingItem[]?> GetAllItems(); // finder alle items i listen
