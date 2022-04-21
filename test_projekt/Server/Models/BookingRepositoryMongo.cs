@@ -21,6 +21,7 @@ namespace test_projekt.Server.Models
 
         public List<Shelter> GetAllItems()
         {
+            Console.WriteLine("getallitems - repository");
             return db.Items.Find(_ => true).ToList();
         }
 

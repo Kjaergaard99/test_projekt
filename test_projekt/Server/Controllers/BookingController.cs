@@ -24,12 +24,16 @@ namespace test_projekt.Server.Controllers
 		[HttpGet]
 		public IEnumerable<Shelter> GetAllItems()
         {
+			Console.WriteLine("getallitems - controller");
 			return Repository.GetAllItems();
         }
 
+		/*
 		public BookingController()
 		{
 		}
+
+		*/
 	}
 }
 
