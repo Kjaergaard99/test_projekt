@@ -5,8 +5,11 @@
 
 <PageTitle>Booking Side</PageTitle>
 
-<h1>Booking</h1>
+<h1>Counter</h1>
 
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 <p>
 
@@ -25,8 +28,18 @@
 
         [Inject]
         public IBookingService Service { get; set; }
+
+
+
         protected override async Task OnInitializedAsync()
         {
             Items = (await Service.GetAllItems()).ToList();
+        }
+
+        private int currentCount = 100;
+
+        private void IncrementCount()
+        {
+            currentCount = (currentCount + 10);
         }
     }

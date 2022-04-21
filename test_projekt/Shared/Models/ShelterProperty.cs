@@ -1,6 +1,4 @@
 ﻿using System;
-
-
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 using System.ComponentModel.DataAnnotations;

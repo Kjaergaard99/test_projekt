@@ -32,7 +32,6 @@ namespace test_projekt.Server.Controllers
 		public BookingController()
 		{
 		}
-
 		*/
 	}
 }
