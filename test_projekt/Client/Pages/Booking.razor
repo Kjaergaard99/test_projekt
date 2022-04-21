@@ -27,7 +27,7 @@
     public IBookingService Service { get; set; }
     protected override async void OnInitialized()
     {
-        Items = (await Service.GetAllItems().ToList());
+        Items = (await Service.GetAllItems()).ToList();
     }
 
     private int currentCount = 100;

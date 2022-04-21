@@ -40,7 +40,6 @@ namespace test_projekt.Shared.Models
 		[BsonRepresentation(BsonType.ObjectId)]
 		public string? MongoId { get; set; }
 
-
 		public Shelter()
 		{
 		}
