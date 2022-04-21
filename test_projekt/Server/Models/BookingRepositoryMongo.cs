@@ -12,10 +12,13 @@ namespace test_projekt.Server.Models
     {
         // private static readonly List<ShoppingItem> Items;
         BookingDBContext db = new BookingDBContext();
+
+
         public void AddItem(Shelter item)
         {
             db.Items.InsertOne(item);
         }
+
         public List<Shelter> GetAllItems()
         {
             return db.Items.Find(_ => true).ToList();
