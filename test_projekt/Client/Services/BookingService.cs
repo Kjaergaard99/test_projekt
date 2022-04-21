@@ -10,26 +10,26 @@ namespace test_projekt.Client.Services
 
         public Task<Shelter[]?> GetAllItems()
         {
-            var result = httpClient.GetFromJsonAsync<Shelter[]>("api/shopapi");
+            var result = httpClient.GetFromJsonAsync<Shelter[]>("api/bookingapi");
             return result;
         }
 
         public async Task<int> AddItem(Shelter item)
         {
-            var response = await httpClient.PostAsJsonAsync("api/shopapi", item);
+            var response = await httpClient.PostAsJsonAsync("api/bookingapi", item);
             var responseStatusCode = response.StatusCode;
             return (int)responseStatusCode;
         }
 
         public async Task<Shelter> GetItem(int id)
         {
-            var result = await httpClient.GetFromJsonAsync<Shelter>("api/shopapi/" + id);
+            var result = await httpClient.GetFromJsonAsync<Shelter>("api/bookingapi/" + id);
             return result;
         }
 
         public async Task<int> UpdateItem(Shelter item)
         {
-            var response = await httpClient.PutAsJsonAsync("api/shopapi", item);
+            var response = await httpClient.PutAsJsonAsync("api/bookingapi", item);
             var responseStatusCode = response.StatusCode;
             return (int)responseStatusCode;
 
@@ -37,7 +37,7 @@ namespace test_projekt.Client.Services
 
         public async Task<int> DeleteItem(int id)
         {
-            var response = await httpClient.DeleteAsync("api/shopapi/" + id);
+            var response = await httpClient.DeleteAsync("api/bookingapi/" + id);
             var responseStatusCode = response.StatusCode;
             return (int)responseStatusCode;
         }

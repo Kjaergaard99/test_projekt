@@ -14,26 +14,28 @@
 <p>
 
     @foreach (var item in Items)
+    {
+    <p>
+        Id: @item.Navn
+    </p>
+}
+
+    </p>
+
+    @code {
+        private List<Shelter> Items = new List<Shelter>();
+
+        [Inject]
+        public IBookingService Service { get; set; }
+        protected override async void OnInitialized()
         {
-            
+            Items = (await Service.GetAllItems()).ToList();
         }
 
-</p>
+        private int currentCount = 100;
 
-@code {
-    private List<Shelter> Items = new List<Shelter>();
-
-    [Inject]
-    public IBookingService Service { get; set; }
-    protected override async void OnInitialized()
-    {
-        Items = (await Service.GetAllItems()).ToList();
+        private void IncrementCount()
+        {
+            currentCount = (currentCount + 10);
+        }
     }
-
-    private int currentCount = 100;
-
-    private void IncrementCount()
-    {
-        currentCount = (currentCount + 10);
-    }
-}
