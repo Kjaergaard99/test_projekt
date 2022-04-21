@@ -5,16 +5,20 @@
 
 <PageTitle>Booking Side</PageTitle>
 
-<h1>Booking</h1>
+<h1>Shelterbooking i Århus</h1>
 
 <p>
 
     @foreach (var item in Items)
     {
     <p>
-        Navn: @item.Property.Navn
+        <b>Navn: </b>@item.Property.Navn
         <br>
-        Beskrivelse: @item.Property.Beskrivelse
+        <b>Beskrivelse:</b> @item.Property.Beskrivelse
+        <br>
+        <b>Adresse:</b> @item.Property.Vejnavn @item.Property.HusNr
+        <br>
+        <b>Antal pladser:</b> @item.Property.AntalPladser
        
     </p>
 }
