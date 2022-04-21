@@ -3,7 +3,7 @@ using test_projekt.Shared.Models;
 
 namespace test_projekt.Client.Services
 {
-    public class BookingService : IBookingService
+    public class ShelterService : IShelterService
     {
         private readonly HttpClient httpClient;
 
@@ -53,7 +53,7 @@ namespace test_projekt.Client.Services
 
 
 
-        public BookingService(HttpClient httpClient)
+        public ShelterService(HttpClient httpClient)
         {
             this.httpClient = httpClient;
         }

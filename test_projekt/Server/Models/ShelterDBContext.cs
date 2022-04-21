@@ -4,22 +4,22 @@ using MongoDB.Bson;
 
 namespace test_projekt.Server.Models
 {
-	public class BookingDBContext
+	public class ShelterDBContext
 	{
 		private readonly IMongoDatabase mongoDatabase;
 
-		public BookingDBContext()
+		public ShelterDBContext()
 		{
 			string atlasConnection = "mongodb+srv://haha:haha@cluster0.uupb3.mongodb.net/test";
 			var client = new MongoClient(atlasConnection);
 			mongoDatabase = client.GetDatabase("shelterdb");
 		}
-		public IMongoCollection<BrugerBooking> BookingListe
+		public IMongoCollection<Shelter> Items
 		{
 			get
 			{
 				return
-				mongoDatabase.GetCollection<BrugerBooking>("bookings");
+				mongoDatabase.GetCollection<Shelter>("shelters");
 			}
 		}
 

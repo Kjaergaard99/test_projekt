@@ -7,7 +7,7 @@ using test_projekt.Shared.Models;
 
 namespace test_projekt.Server.Models
 {
-    public interface IBookingRepository
+    public interface IShelterRepository
     {
         List<Shelter> GetAllItems();
 

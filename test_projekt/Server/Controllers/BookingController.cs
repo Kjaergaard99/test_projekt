@@ -10,11 +10,11 @@ namespace test_projekt.Server.Controllers
 	[Route("api/bookingapi")]
 	public class BookingController : ControllerBase
 	{
-		private readonly IBookingRepository Repository = new BookingRepositoryMongo();
+		private readonly IShelterRepository Repository = new ShelterRepositoryMongo();
 
-		private readonly IBookingRepository BookingListe = new BookingRepositoryMongo();
+		private readonly IShelterRepository BookingListe = new ShelterRepositoryMongo();
 
-		public BookingController(IBookingRepository bookingRepository)
+		public BookingController(IShelterRepository bookingRepository)
         {
 			if (Repository == null && bookingRepository != null)
             {

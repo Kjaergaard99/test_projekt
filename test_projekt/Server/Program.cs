@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
-builder.Services.AddScoped<IBookingRepository, BookingRepositoryMongo>();
+builder.Services.AddScoped<IShelterRepository, ShelterRepositoryMongo>();
 
 var app = builder.Build();
 

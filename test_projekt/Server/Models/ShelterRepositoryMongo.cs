@@ -8,15 +8,17 @@ using MongoDB.Driver;
 
 namespace test_projekt.Server.Models
 {
-    internal class BookingRepositoryMongo : IBookingRepository
+    internal class ShelterRepositoryMongo : IShelterRepository
     {
         // private static readonly List<ShoppingItem> Items;
-        BookingDBContext db = new BookingDBContext();
+        ShelterDBContext db = new ShelterDBContext();
+
+        BookingDBContext brugerDB = new BookingDBContext();
 
 
         public void AddBooking(BrugerBooking brugerBooking)
         {
-            db.Items.InsertOne(brugerBooking);
+            brugerDB.BookingListe.InsertOne(brugerBooking);
         }
 
         public List<Shelter> GetAllItems()
@@ -27,7 +29,7 @@ namespace test_projekt.Server.Models
 
 
 
-        public BookingRepositoryMongo()
+        public ShelterRepositoryMongo()
         {
 
         }

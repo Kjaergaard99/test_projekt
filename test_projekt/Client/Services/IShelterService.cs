@@ -3,7 +3,7 @@
 
 namespace test_projekt.Client.Services;
 
-public interface IBookingService
+public interface IShelterService
 {
 
     Task<Shelter[]?> GetAllItems(); // finder alle items i listen
