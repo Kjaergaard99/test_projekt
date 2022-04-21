@@ -5,14 +5,13 @@ using MongoDB.Bson;
 using System.ComponentModel.DataAnnotations;
 
 
+
 namespace test_projekt.Shared.Models
 {
 	[BsonIgnoreExtraElements]
 
 	public class Shelter
-	{
-
-		
+	{	
 
 		[BsonId]
 		[BsonRepresentation(BsonType.ObjectId)]
@@ -24,6 +23,8 @@ namespace test_projekt.Shared.Models
 		public Shelter()
 		{
 		}
+
+
 	}
 }
 

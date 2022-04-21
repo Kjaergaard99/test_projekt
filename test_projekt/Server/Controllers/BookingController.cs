@@ -27,9 +27,11 @@ namespace test_projekt.Server.Controllers
 			return Repository.GetAllItems();
         }
 
+		/*
 		public BookingController()
 		{
 		}
+		*/
 	}
 }
 
