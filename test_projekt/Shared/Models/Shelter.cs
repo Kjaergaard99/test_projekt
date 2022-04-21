@@ -1,13 +1,17 @@
 ﻿using System;
+<<<<<<< HEAD
 using test_projekt.Shared.Models;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 using System.ComponentModel.DataAnnotations;
 
+=======
+>>>>>>> fe4c3797421b192bd389769bc969afbd1d73bfbb
 namespace test_projekt.Shared.Models
 {
 	public class Shelter
 	{
+<<<<<<< HEAD
 		[Required]
 		[BsonElement("shelter_id")]
 		public int ShelterId { get; set; }
@@ -40,6 +44,8 @@ namespace test_projekt.Shared.Models
 		[BsonRepresentation(BsonType.ObjectId)]
 		public string? MongoId { get; set; }
 
+=======
+>>>>>>> fe4c3797421b192bd389769bc969afbd1d73bfbb
 
 
 		public Shelter()
