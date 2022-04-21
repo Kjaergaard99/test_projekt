@@ -27,12 +27,6 @@ namespace test_projekt.Server.Controllers
 			Console.WriteLine("getallitems - controller");
 			return Repository.GetAllItems();
         }
-
-		/*
-		public BookingController()
-		{
-		}
-		*/
 	}
 }
 
