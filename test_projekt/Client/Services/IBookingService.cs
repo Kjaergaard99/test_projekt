@@ -8,6 +8,8 @@ public interface IBookingService
 
     Task<Shelter[]?> GetAllItems(); // finder alle items i listen
 
+    Task<int> AddBooking(BrugerBooking brugerBooking); // tilføjer en booking
+
     Task<Shelter?> GetItem(int id); // finder en specifik item, læser id og vælger den
 
     Task<int> AddItem(Shelter item); // tilføjer en item til shopping listen

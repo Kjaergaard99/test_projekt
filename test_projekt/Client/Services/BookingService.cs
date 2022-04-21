@@ -14,12 +14,21 @@ namespace test_projekt.Client.Services
             return result;
         }
 
+        public async Task<int> AddBooking(BrugerBooking brugerBooking)
+        {
+            var response = await httpClient.PostAsJsonAsync("api/bookingapi", brugerBooking);
+            var responseStatusCode = response.StatusCode;
+            return (int)responseStatusCode;
+        }
+
+
         public async Task<int> AddItem(Shelter item)
         {
             var response = await httpClient.PostAsJsonAsync("api/bookingapi", item);
             var responseStatusCode = response.StatusCode;
             return (int)responseStatusCode;
         }
+
 
         public async Task<Shelter> GetItem(int id)
         {

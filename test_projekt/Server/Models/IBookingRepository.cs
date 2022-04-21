@@ -10,5 +10,7 @@ namespace test_projekt.Server.Models
     public interface IBookingRepository
     {
         List<Shelter> GetAllItems();
+
+        void AddBooking(BrugerBooking brugerBooking);
     }
 }

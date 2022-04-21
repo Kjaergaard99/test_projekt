@@ -58,7 +58,13 @@
 
         <div class="col-md-6 mb-3">
             <label for="SlutDato">Valgt shelter: </label>
-            
+
+        </div>
+
+        <br />
+
+        <div class="col-12 mb-3">
+            <button class="btn btn-primary" @onclick="AddBookingHandler">Book shelter</button>
         </div>
 
     </EditForm>
@@ -68,6 +74,7 @@
         private List<Shelter> Items = new List<Shelter>();
         private EditContext EditContext;
         private BrugerBooking brugerBooking = new BrugerBooking();
+        private int ErrorCode { get; set; } = 0;
 
         [Inject]
         public IBookingService Service { get; set; }
@@ -82,5 +89,11 @@
         protected override async Task OnInitializedAsync()
         {
             Items = (await Service.GetAllItems()).ToList();
+        }
+
+        private async Task AddBookingHandler()
+        {
+            ErrorCode = await Service.AddBooking(brugerBooking); //evt slet
+            Console.WriteLine("Shopping item added: return code: " + ErrorCode);
         }
     }

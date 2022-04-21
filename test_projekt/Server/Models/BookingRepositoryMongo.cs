@@ -14,9 +14,9 @@ namespace test_projekt.Server.Models
         BookingDBContext db = new BookingDBContext();
 
 
-        public void AddItem(Shelter item)
+        public void AddBooking(BrugerBooking brugerBooking)
         {
-            db.Items.InsertOne(item);
+            db.Items.InsertOne(brugerBooking);
         }
 
         public List<Shelter> GetAllItems()
@@ -24,6 +24,7 @@ namespace test_projekt.Server.Models
             Console.WriteLine("getallitems - repository");
             return db.Items.Find(_ => true).ToList();
         }
+
 
 
         public BookingRepositoryMongo()

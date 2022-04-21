@@ -12,6 +12,8 @@ namespace test_projekt.Server.Controllers
 	{
 		private readonly IBookingRepository Repository = new BookingRepositoryMongo();
 
+		private readonly IBookingRepository BookingListe = new BookingRepositoryMongo();
+
 		public BookingController(IBookingRepository bookingRepository)
         {
 			if (Repository == null && bookingRepository != null)
@@ -27,6 +29,13 @@ namespace test_projekt.Server.Controllers
 			Console.WriteLine("getallitems - controller");
 			return Repository.GetAllItems();
         }
+
+		[HttpPost]
+		public void AddBooking(BrugerBooking brugerBooking)
+        {
+			Console.WriteLine("Add item called: " + brugerBooking.ToString());
+			BookingListe.AddBooking(brugerBooking);
+		}
 	}
 }
 
