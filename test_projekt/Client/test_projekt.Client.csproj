@@ -36,4 +36,7 @@
   <ItemGroup>
     <Folder Include="Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Services\IShoppingService.cs" />
+  </ItemGroup>
 </Project>

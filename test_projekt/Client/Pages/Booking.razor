@@ -1,4 +1,5 @@
 ﻿@using test_projekt.Shared.Models;
+@using test_projekt.Client.Services;
 
 @page "/booking"
 
@@ -14,13 +15,16 @@
 
     @foreach (var item in Items)
         {
-            Navn: @item.Navn;
+            
         }
 
 </p>
 
 @code {
     private List<Shelter> Items = new List<Shelter>();
+
+    [Inject]
+    public IBookingService
 
     private int currentCount = 100;
 

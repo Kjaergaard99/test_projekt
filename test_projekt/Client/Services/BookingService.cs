@@ -1,38 +1,33 @@
 ﻿using System.Net.Http.Json;
-using blazor_modul_13_14.Shared.Models;
+using test_projekt.Shared.Models;
 
-namespace blazor_modul_13_14.Client.Services
+namespace test_projekt.Client.Services
 {
-    public class ShoppingService : IShoppingService
+    public class BookingService : IBookingService
     {
-
         private readonly HttpClient httpClient;
 
-        public ShoppingService(HttpClient httpClient)
-        {
-            this.httpClient = httpClient;
-        }
 
-        public Task<ShoppingItem[]?> GetAllItems()
+        public Task<Shelter[]?> GetAllItems()
         {
-            var result = httpClient.GetFromJsonAsync<ShoppingItem[]>("api/shopapi");
+            var result = httpClient.GetFromJsonAsync<Shelter[]>("api/shopapi");
             return result;
         }
 
-        public async Task<int> AddItem(ShoppingItem item)
+        public async Task<int> AddItem(Shelter item)
         {
             var response = await httpClient.PostAsJsonAsync("api/shopapi", item);
             var responseStatusCode = response.StatusCode;
             return (int)responseStatusCode;
         }
 
-        public async Task<ShoppingItem> GetItem(int id)
+        public async Task<Shelter> GetItem(int id)
         {
-            var result = await httpClient.GetFromJsonAsync<ShoppingItem>("api/shopapi/" + id);
+            var result = await httpClient.GetFromJsonAsync<Shelter>("api/shopapi/" + id);
             return result;
         }
 
-        public async Task<int> UpdateItem(ShoppingItem item)
+        public async Task<int> UpdateItem(Shelter item)
         {
             var response = await httpClient.PutAsJsonAsync("api/shopapi", item);
             var responseStatusCode = response.StatusCode;
@@ -47,6 +42,12 @@ namespace blazor_modul_13_14.Client.Services
             return (int)responseStatusCode;
         }
 
+
+
+        public BookingService(HttpClient httpClient)
+        {
+            this.httpClient = httpClient;
+        }
     }
 }
 
