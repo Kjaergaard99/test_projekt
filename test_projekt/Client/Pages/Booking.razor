@@ -24,7 +24,11 @@
     private List<Shelter> Items = new List<Shelter>();
 
     [Inject]
-    public IBookingService
+    public IBookingService Service { get; set; }
+    protected override async void OnInitialized()
+    {
+        Items = (await Service.GetAllItems().ToList());
+    }
 
     private int currentCount = 100;
 
