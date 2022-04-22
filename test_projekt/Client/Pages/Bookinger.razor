@@ -1,0 +1,40 @@
+﻿@page "/bookinger"
+@using test_projekt.Shared.Models;
+@using test_projekt.Client.Services;
+@inject HttpClient Http
+
+<PageTitle>Bookinger</PageTitle>
+
+<h1>Bookinger</h1>
+@foreach (var item in Items)
+    {
+    <p>
+        <b>Navn: </b>@item.Navn
+        <br>
+        <b>Email:</b> @item.Email
+        <br>
+        <b>Booked:</b> Fra: @item.StartDato Til: @item.SlutDato
+        <br />
+    </p>
+    }
+    @code {
+        private List<BrugerBooking> Items = new List<BrugerBooking>();
+        private EditContext EditContext;
+        private BrugerBooking brugerBooking = new BrugerBooking();
+        private int ErrorCode { get; set; } = 0;
+
+        [Inject]
+        public IBookingService BookingService { get; set; }
+
+
+        protected override void OnInitialized()
+        {
+            EditContext = new EditContext(brugerBooking);
+        }
+
+
+        protected override async Task OnInitializedAsync()
+        {
+            Items = (await BookingService.GetAllItems()).ToList();
+        }
+    }
