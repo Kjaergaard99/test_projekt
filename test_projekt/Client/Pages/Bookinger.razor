@@ -6,7 +6,7 @@
 <PageTitle>Bookinger</PageTitle>
 
 <h1>Bookinger</h1>
-@foreach (var item in Items)
+@foreach (var item in Bookings)
     {
     <p>
         <b>Navn: </b>@item.Navn
@@ -18,7 +18,7 @@
     </p>
     }
     @code {
-        private List<BrugerBooking> Items = new List<BrugerBooking>();
+        private List<BrugerBooking> Bookings = new List<BrugerBooking>();
         private EditContext EditContext;
         private BrugerBooking brugerBooking = new BrugerBooking();
         private int ErrorCode { get; set; } = 0;
@@ -26,15 +26,15 @@
         [Inject]
         public IBookingService BookingService { get; set; }
 
-
+        /*
         protected override void OnInitialized()
         {
             EditContext = new EditContext(brugerBooking);
         }
-
+        */
 
         protected override async Task OnInitializedAsync()
         {
-            Items = (await BookingService.GetAllItems()).ToList();
+            Bookings = (await BookingService.GetAllBookings()).ToList();
         }
     }

@@ -23,6 +23,15 @@ namespace test_projekt.Server.Models
 			}
 		}
 
+		public IMongoCollection<BrugerBooking> Bookings
+		{
+			get
+			{
+				return
+				mongoDatabase.GetCollection<BrugerBooking>("bookings");
+			}
+		}
+
 	}
 }
 

@@ -8,7 +8,7 @@ namespace test_projekt.Client.Services
         private readonly HttpClient httpClient;
 
 
-        public Task<BrugerBooking[]?> GetAllItems()
+        public Task<BrugerBooking[]?> GetAllBookings()
         {
             var result = httpClient.GetFromJsonAsync<BrugerBooking[]>("api/bookingapi");
             return result;

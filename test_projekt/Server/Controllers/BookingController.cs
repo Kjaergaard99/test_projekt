@@ -12,29 +12,29 @@ namespace test_projekt.Server.Controllers
 	{
 		// private readonly IShelterRepository Repository = new ShelterRepositoryMongo();
 
-		private readonly IShelterRepository BookingListe = new ShelterRepositoryMongo();
+		private readonly IShelterRepository Bookings = new ShelterRepositoryMongo();
 
 		public BookingController(IShelterRepository bookingRepository)
 		{
-			if (BookingListe == null && bookingRepository != null)
+			if (Bookings == null && bookingRepository != null)
 			{
-				BookingListe = bookingRepository;
+				Bookings = bookingRepository;
 				Console.WriteLine("Repository initialized");
 			}
 		}
 
 		[HttpGet]
-		public IEnumerable<Shelter> GetAllItems()
+		public IEnumerable<BrugerBooking> GetAllBookings()
 		{
 			Console.WriteLine("getallitems - controller");
-			return BookingListe.GetAllItems();
+			return Bookings.GetAllBookings();
 		}
 
 		[HttpPost]
 		public void AddBooking(BrugerBooking brugerBooking)
 		{
 			Console.WriteLine("Add item called: " + brugerBooking.ToString());
-			BookingListe.AddBooking(brugerBooking);
+			Bookings.AddBooking(brugerBooking);
 		}
 	}
 }

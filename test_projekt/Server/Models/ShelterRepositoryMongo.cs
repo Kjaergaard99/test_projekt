@@ -13,18 +13,24 @@ namespace test_projekt.Server.Models
         // private static readonly List<ShoppingItem> Items;
         ShelterDBContext db = new ShelterDBContext();
 
-        BookingDBContext brugerDB = new BookingDBContext();
+        //ShelterDBContext brugerDB = new ShelterDBContext();
 
 
         public void AddBooking(BrugerBooking brugerBooking)
         {
-            brugerDB.BookingListe.InsertOne(brugerBooking);
+            db.Bookings.InsertOne(brugerBooking);
         }
 
         public List<Shelter> GetAllItems()
         {
             Console.WriteLine("getallitems - repository");
             return db.Items.Find(_ => true).ToList();
+        }
+
+        public List<BrugerBooking> GetAllBookings()
+        {
+            Console.WriteLine("getallitems - bookingrepository");
+            return db.Bookings.Find(_ => true).ToList();
         }
 
 

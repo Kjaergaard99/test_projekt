@@ -11,6 +11,8 @@ namespace test_projekt.Server.Models
     {
         List<Shelter> GetAllItems();
 
+        List<BrugerBooking> GetAllBookings();
+
         void AddBooking(BrugerBooking brugerBooking);
     }
 }

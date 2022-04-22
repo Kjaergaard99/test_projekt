@@ -6,7 +6,7 @@ namespace test_projekt.Client.Services;
 public interface IBookingService
 {
 
-    Task<BrugerBooking[]?> GetAllItems(); // finder alle items i listen
+    Task<BrugerBooking[]?> GetAllBookings(); // finder alle items i listen
 
     Task<int> AddBooking(BrugerBooking brugerBooking); // tilføjer en booking
 
