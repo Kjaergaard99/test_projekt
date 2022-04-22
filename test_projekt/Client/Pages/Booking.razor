@@ -54,10 +54,13 @@
             <InputDate id="SlutDato" @bind-Value="brugerBooking.SlutDato" class="form-control" />
         </div>
 
+
         <br />
+
 
         <div class="col-md-6 mb-3">
             <label for="SlutDato">Valgt shelter: </label>
+            
 
         </div>
 
@@ -79,6 +82,7 @@
         [Inject]
         public IShelterService Service { get; set; }
 
+        [Inject]
         public IBookingService BookingService { get; set; }
 
 
@@ -92,6 +96,12 @@
         {
             Items = (await Service.GetAllItems()).ToList();
         }
+
+        /*private async Task AddBookingHandler(BrugerBooking brugerBooking)
+        {
+            ErrorCode = await BookingService.AddBooking(brugerBooking); //evt slet
+            Console.WriteLine("Shelter booket: " + ErrorCode);
+        }*/
 
         private async Task AddBookingHandler()
         {

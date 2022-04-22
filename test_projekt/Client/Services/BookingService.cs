@@ -3,14 +3,14 @@ using test_projekt.Shared.Models;
 
 namespace test_projekt.Client.Services
 {
-    public class BookingService : IShelterService
+    public class BookingService : IBookingService
     {
         private readonly HttpClient httpClient;
 
 
-        public Task<Shelter[]?> GetAllItems()
+        public Task<BrugerBooking[]?> GetAllItems()
         {
-            var result = httpClient.GetFromJsonAsync<Shelter[]>("api/bookingapi");
+            var result = httpClient.GetFromJsonAsync<BrugerBooking[]>("api/bookingapi");
             return result;
         }
 
