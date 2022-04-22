@@ -18,11 +18,14 @@ namespace test_projekt.Shared.Models
 		
 		public DateTime SlutDato { get; set; } = DateTime.Now;
 
+		public string ValgtShelter { get; set; }
 
-		public BrugerBooking(string navn = "", string email = "")
+
+		public BrugerBooking(string navn = "", string email = "", string valgtShelter = "")
 		{
 			this.Navn = navn;
 			this.Email = email;
+			this.ValgtShelter = valgtShelter;
 		}
 	}
 }

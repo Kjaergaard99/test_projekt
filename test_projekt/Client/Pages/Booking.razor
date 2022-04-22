@@ -20,8 +20,9 @@
         <br>
         <b>Antal pladser:</b> @item.Property.AntalPladser
         <br />
-        <input type="checkbox" id="checkbox" @bind-value="item.Property.Navn"/>
-       
+        <!--<input type="checkbox" id="checkbox" @onclick="() => CheckboxHandler(item)"/>-->
+        <button class="VælgShelter" @onclick="VælgShelter(item)">Vælg dette shelter</button>
+
     </p>
 }
     </div>
@@ -53,6 +54,7 @@
             <label for="SlutDato">Slut dato</label>
             <InputDate id="SlutDato" @bind-Value="brugerBooking.SlutDato" class="form-control" />
         </div>
+
 
 
         <br />
@@ -107,5 +109,17 @@
         {
             ErrorCode = await BookingService.AddBooking(brugerBooking); //evt slet
             Console.WriteLine("Shelter booket: " + ErrorCode);
+        }
+
+        /*
+        private async Task CheckboxHandler(BrugerBooking item)
+        {
+
+        }
+        */
+
+        private async Task VælgShelter(Shelter item)
+        {
+
         }
     }
