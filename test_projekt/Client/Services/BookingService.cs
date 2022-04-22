@@ -21,13 +21,15 @@ namespace test_projekt.Client.Services
             return (int)responseStatusCode;
         }
 
-
+        /*
         public async Task<Shelter> GetItem(int id)
         {
             var result = await httpClient.GetFromJsonAsync<Shelter>("api/bookingapi/" + id);
             return result;
         }
+        */
 
+        /*
         public async Task<int> UpdateItem(Shelter item)
         {
             var response = await httpClient.PutAsJsonAsync("api/bookingapi", item);
@@ -42,7 +44,7 @@ namespace test_projekt.Client.Services
             var responseStatusCode = response.StatusCode;
             return (int)responseStatusCode;
         }
-
+        */
 
 
         public BookingService(HttpClient httpClient)

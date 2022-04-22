@@ -21,7 +21,7 @@ namespace test_projekt.Client.Services
             return (int)responseStatusCode;
         }
 
-
+        /*
         public async Task<Shelter> GetItem(int id)
         {
             var result = await httpClient.GetFromJsonAsync<Shelter>("api/shelterapi/" + id);
@@ -42,7 +42,7 @@ namespace test_projekt.Client.Services
             var responseStatusCode = response.StatusCode;
             return (int)responseStatusCode;
         }
-
+        */
 
 
         public ShelterService(HttpClient httpClient)
