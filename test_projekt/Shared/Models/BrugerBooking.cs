@@ -21,6 +21,9 @@ namespace test_projekt.Shared.Models
 		[BsonElement("SlutDato")]
 		public DateTime SlutDato { get; set; } = DateTime.Now;
 
+		[BsonElement("ValgtShelter")]
+		public string ValgtShelter { get; set; } = "";
+
 		[BsonRepresentation(BsonType.ObjectId)]
 		public string? MongoId { get; set; }
 
