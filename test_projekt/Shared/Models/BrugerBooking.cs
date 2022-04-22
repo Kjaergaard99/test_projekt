@@ -24,14 +24,11 @@ namespace test_projekt.Shared.Models
 		[BsonRepresentation(BsonType.ObjectId)]
 		public string? MongoId { get; set; }
 
-		public string ValgtShelter { get; set; }
-
 		/*
-		public BrugerBooking(string navn = "", string email = "", string valgtShelter = "")
+		public BrugerBooking(string navn = "", string email = "")
 		{
 			this.Navn = navn;
 			this.Email = email;
-			this.ValgtShelter = valgtShelter;
 		}
 		*/
 
