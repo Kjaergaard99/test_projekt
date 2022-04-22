@@ -29,6 +29,7 @@ namespace test_projekt.Server.Controllers
 			Console.WriteLine("getallitems - controller");
 			return Repository.GetAllItems();
         }
+
 		/*
 		[HttpPost]
 		public void AddBooking(BrugerBooking brugerBooking)
