@@ -79,6 +79,8 @@
         [Inject]
         public IShelterService Service { get; set; }
 
+        public IBookingService BookingService { get; set; }
+
 
         protected override void OnInitialized()
         {
@@ -93,7 +95,7 @@
 
         private async Task AddBookingHandler()
         {
-            ErrorCode = await Service.AddBooking(brugerBooking); //evt slet
+            ErrorCode = await BookingService.AddBooking(brugerBooking); //evt slet
             Console.WriteLine("Shelter booket: " + ErrorCode);
         }
     }

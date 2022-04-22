@@ -12,10 +12,10 @@ namespace test_projekt.Shared.Models
 		[Required]
 		public string Email { get; set; }
 
-		[Required]
+		
 		public DateTime StartDato { get; set; } = DateTime.Now;
 
-		[Required]
+		
 		public DateTime SlutDato { get; set; } = DateTime.Now;
 
 

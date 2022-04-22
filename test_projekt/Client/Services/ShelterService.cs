@@ -22,10 +22,11 @@ namespace test_projekt.Client.Services
         }
 
         /*
-        public async Task<Shelter> GetItem(int id)
+        public async Task<int> AddShelter(Shelter shelter)
         {
-            var result = await httpClient.GetFromJsonAsync<Shelter>("api/shelterapi/" + id);
-            return result;
+            var response = await httpClient.PostAsJsonAsync("api/shelterapi", shelter);
+            var responseStatusCode = response.StatusCode;
+            return (int)responseStatusCode;
         }
 
         public async Task<int> UpdateItem(Shelter item)

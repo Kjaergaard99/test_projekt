@@ -32,10 +32,10 @@ namespace test_projekt.Server.Controllers
 
 		/*
 		[HttpPost]
-		public void AddBooking(BrugerBooking brugerBooking)
+		public void AddShelter(Shelter shelter)
         {
-			Console.WriteLine("Add item called: " + brugerBooking.ToString());
-			BookingListe.AddBooking(brugerBooking);
+			Console.WriteLine("Add item called: " + shelter.ToString());
+			BookingListe.AddShelter(shelter);
 		}
 		*/
 	}

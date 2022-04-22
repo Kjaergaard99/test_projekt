@@ -11,10 +11,8 @@ public interface IBookingService
     Task<int> AddBooking(BrugerBooking brugerBooking); // tilføjer en booking
 
     /*
-    Task<Shelter?> GetItem(int id); // finder en specifik item, læser id og vælger den
-
-
     Task<int> DeleteItem(int id); // sletter en item
+
     Task<int> UpdateItem(Shelter item); // opdaterer en item
     */
 }
