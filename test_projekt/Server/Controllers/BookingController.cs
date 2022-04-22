@@ -10,29 +10,29 @@ namespace test_projekt.Server.Controllers
 	[Route("api/bookingapi")]
 	public class BookingController : ControllerBase
 	{
-		private readonly IShelterRepository Repository = new ShelterRepositoryMongo();
+		// private readonly IShelterRepository Repository = new ShelterRepositoryMongo();
 
 		private readonly IShelterRepository BookingListe = new ShelterRepositoryMongo();
 
 		public BookingController(IShelterRepository bookingRepository)
-        {
-			if (Repository == null && bookingRepository != null)
-            {
-				Repository = bookingRepository;
-                Console.WriteLine("Repository initialized");
-            }
-        }
+		{
+			if (BookingListe == null && bookingRepository != null)
+			{
+				BookingListe = bookingRepository;
+				Console.WriteLine("Repository initialized");
+			}
+		}
 
 		[HttpGet]
 		public IEnumerable<Shelter> GetAllItems()
-        {
+		{
 			Console.WriteLine("getallitems - controller");
-			return Repository.GetAllItems();
-        }
+			return BookingListe.GetAllItems();
+		}
 
 		[HttpPost]
 		public void AddBooking(BrugerBooking brugerBooking)
-        {
+		{
 			Console.WriteLine("Add item called: " + brugerBooking.ToString());
 			BookingListe.AddBooking(brugerBooking);
 		}

@@ -12,7 +12,6 @@ public interface IShelterService
 
     Task<Shelter?> GetItem(int id); // finder en specifik item, læser id og vælger den
 
-    Task<int> AddItem(Shelter item); // tilføjer en item til shopping listen
 
     Task<int> DeleteItem(int id); // sletter en item
     Task<int> UpdateItem(Shelter item); // opdaterer en item
