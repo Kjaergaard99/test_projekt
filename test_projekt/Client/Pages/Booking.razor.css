@@ -5,12 +5,12 @@
 
 .shelters {
     text-align: left;
-    width: 35%;
-    text-align: justify;
+    width: 50%;
     float: left;
-    background-color: red;
 }
 
 .booking {
     margin-left: 45%;
 }
+
+

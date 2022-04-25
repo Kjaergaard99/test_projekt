@@ -9,23 +9,40 @@
 
 <div class="parent">
 <div class="shelters">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        td{
+            width: 200%;
+        }
+    </style>
     @foreach (var item in Items)
     {
-    <p>
-        <b>Navn: </b>@item.Property.Navn
-        <br>
-        <b>Beskrivelse:</b> @item.Property.Beskrivelse
-        <br>
-        <b>Adresse:</b> @item.Property.Vejnavn @item.Property.HusNr
-        <br>
-        <b>Antal pladser:</b> @item.Property.AntalPladser
-        <br />
+    <table>
+        <tr>
+            <th>Navn:</th>
+            <td>@item.Property.Navn</td>
+        </tr>
+        <tr>
+            <th>Beskrivelse:</th>
+            <td>@item.Property.Beskrivelse</td>
+        </tr>
+        <tr>
+            <th>Adresse:</th>
+            <td>@item.Property.Vejnavn, @item.Property.HusNr</td>
+        </tr>
+        <tr>
+            <th>Antal Pladser:</th>
+            <td>@item.Property.AntalPladser</td>
+        </tr>
+        </table>
         <!--<input type="checkbox" id="checkbox"/>-->
         <button class="VælgShelter btn btn-success" @onclick="() => VælgShelter(item)">Vælg dette shelter</button>
         <br />
         <br />
+        
 
-    </p>
 }
     </div>
 
