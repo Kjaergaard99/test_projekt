@@ -1,0 +1,16 @@
+﻿.parent {
+    overflow: hidden;
+}
+
+
+.shelters {
+    text-align: left;
+    width: 35%;
+    text-align: justify;
+    float: left;
+    background-color: red;
+}
+
+.booking {
+    margin-left: 45%;
+}
