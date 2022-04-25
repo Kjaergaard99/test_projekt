@@ -1,23 +1,37 @@
-﻿@page "/bookinger"
+﻿@page "/pedelside"
 @using test_projekt.Shared.Models;
 @using test_projekt.Client.Services;
 @using test_projekt;
 
 <PageTitle>Bookinger</PageTitle>
 
-<h1>Bookinger</h1>
+<h1>Pedel side</h1>
+<style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 @foreach (var item in Bookings)
 {
-<p>
-    <b>Shelter: </b> @item.ValgtShelter
-    <br>
-    <b>Navn: </b>@item.Navn
-    <br>
-    <b>Email:</b> @item.Email
-    <br>
-    <b>Booked:</b> Fra: @item.StartDato Til: @item.SlutDato
-    <br>
-</p>
+    <table>
+        <tr>
+            <th>Shelter:</th>
+            <td>@item.ValgtShelter</td>
+        </tr>
+        <tr>
+            <th>Navn:</th>
+            <td>@item.Navn</td>
+        </tr>
+        <tr>
+            <th>Email:</th>
+            <td>@item.Email</td>
+        </tr>
+        <tr>
+            <th>Booked:</th>
+            <td>@item.StartDato Til: @item.SlutDato</td>
+        </tr>
+        </table>
+        <br />
 }
 @code {
     private List<BrugerBooking> Bookings = new List<BrugerBooking>();
