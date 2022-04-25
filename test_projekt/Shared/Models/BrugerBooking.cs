@@ -19,11 +19,13 @@ namespace test_projekt.Shared.Models
 		[BsonElement("ValgtShelter")]
 		public string ValgtShelter { get; set; }
 
+		[BsonDateTimeOptions(Kind = DateTimeKind.Local)]
 		[BsonElement("StartDato")]
-		public DateTime StartDato { get; set; } = DateTime.Now.AddHours(4);
+		public DateTime StartDato { get; set; } = DateTime.Now;
 
+		[BsonDateTimeOptions(Kind = DateTimeKind.Local)]
 		[BsonElement("SlutDato")]
-		public DateTime SlutDato { get; set; } = DateTime.Now.AddHours(4);
+		public DateTime SlutDato { get; set; } = DateTime.Now;
 
 
 		/*
