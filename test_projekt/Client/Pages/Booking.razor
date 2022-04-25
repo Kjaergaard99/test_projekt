@@ -88,6 +88,10 @@
             <button class="btn btn-primary" @onclick="AddBookingHandler">Book shelter</button>
         </div>
 
+        <div>
+            <label for="bookingBesked">bookingBesked = @bookingBesked</label>
+        </div>
+
     </EditForm>
 </div>
 </div>
@@ -97,7 +101,8 @@
         private EditContext EditContext;
         private BrugerBooking brugerBooking = new BrugerBooking();
         private int ErrorCode { get; set; } = 0;
-        
+        private string bookingBesked = "";
+
 
         [Inject]
         public IShelterService Service { get; set; }
@@ -125,15 +130,24 @@
 
         private async Task AddBookingHandler()
         {
-            ErrorCode = await BookingService.AddBooking(brugerBooking); //evt slet
-            Console.WriteLine("Shelter booket: " + ErrorCode);
+            if (brugerBooking.SlutDato < brugerBooking.StartDato)
+            {
+                Console.WriteLine("Shelter ikke booket: " + ErrorCode);
+                bookingBesked = "Fejl";
+            }
+            else
+            {
+                ErrorCode = await BookingService.AddBooking(brugerBooking); //evt slet
+                Console.WriteLine("Shelter booket: " + ErrorCode);
+                bookingBesked = "Success";
+            }
         }
 
-        
+
         private async Task VælgShelter(Shelter item)
         {
             brugerBooking.ValgtShelter = item.Property.Navn;
         }
-        
+
 
     }
