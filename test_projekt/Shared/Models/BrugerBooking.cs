@@ -23,7 +23,7 @@ namespace test_projekt.Shared.Models
 		public DateTime StartDato { get; set; } = DateTime.Now;
 
 		[BsonElement("SlutDato")]
-		public DateTime SlutDato { get; set; } = DateTime.Now;
+		public DateTime SlutDato { get; set; } = DateTime.Now.AddDays(1);
 
 
 		/*
