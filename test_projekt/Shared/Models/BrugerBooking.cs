@@ -20,7 +20,7 @@ namespace test_projekt.Shared.Models
 		public string ValgtShelter { get; set; }
 
 		[BsonElement("StartDato")]
-		public DateTime StartDato { get; set; } = DateTime.Now;
+		public DateTime StartDato { get; set; } = DateTime.Now.AddDays(1);
 
 		[BsonElement("SlutDato")]
 		public DateTime SlutDato { get; set; } = DateTime.Now.AddDays(1);
