@@ -1,7 +1,7 @@
 ﻿@page "/bookinger"
 @using test_projekt.Shared.Models;
 @using test_projekt.Client.Services;
-@inject HttpClient Http
+@using test_projekt;
 
 <PageTitle>Bookinger</PageTitle>
 
@@ -26,7 +26,7 @@
         private int ErrorCode { get; set; } = 0;
 
         [Inject]
-        public IBookingService BookingService { get; set; }
+        public IBookingService BookingService{ get; set; }
 
         /*
         protected override void OnInitialized()
