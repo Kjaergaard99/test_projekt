@@ -9,14 +9,6 @@
 
 <div class="parent">
 <div class="shelters">
-    <style>
-        table, th, td {
-            border: 1px solid black;
-        }
-        td{
-            width: 200%;
-        }
-    </style>
     @foreach (var item in Items)
     {
     <table>
@@ -49,16 +41,18 @@
 
 <div class="booking">
     <EditForm EditContext="@EditContext" class="row p-3">
+        <DataAnnotationsValidator />
         <div class="col-md-12 mb-3">
             <label for="Navn">Navn</label>
             <InputText id="Navn" @bind-Value="brugerBooking.Navn" class="form-control" />
+            <ValidationMessage For="@(() => brugerBooking.Navn)" />
         </div>
 
         <br />
-
         <div class="col-md-12 mb-3">
             <label for="Email">Email</label>
             <InputText id="Email" @bind-Value="brugerBooking.Email" class="form-control" />
+            
 
         </div>
 
@@ -76,10 +70,10 @@
 
 
         <br />
-
         <div class="col-md-12 mb-3">
             <label for="ValgtShelter">Valgt shelter: @brugerBooking.ValgtShelter</label>
         </div>
+        <ValidationMessage For="@(() => brugerBooking.ValgtShelter)" />
 
 
         <br />
@@ -130,16 +124,31 @@
 
         private async Task AddBookingHandler()
         {
-            if (brugerBooking.SlutDato < brugerBooking.StartDato)
+            if (brugerBooking.SlutDato <= brugerBooking.StartDato)
             {
                 Console.WriteLine("Shelter ikke booket: " + ErrorCode);
-                bookingBesked = "Fejl";
+                bookingBesked = "Ugyldig dato";
+            }
+            else if (!brugerBooking.Email.Contains("@"))
+            {
+                Console.WriteLine("Shelter ikke booket: " + ErrorCode);
+                bookingBesked = "Ugyldig email; mails skal indeholde @)";
+            }
+            else if (brugerBooking.Navn is null)
+            {
+                Console.WriteLine("Shelter ikke booket: " + ErrorCode);
+                bookingBesked = "Indtast navn";
+            }
+            else if (brugerBooking.ValgtShelter is null)
+            {
+                Console.WriteLine("Shelter ikke booket: " + ErrorCode);
+                bookingBesked = "Vælg et shelter";
             }
             else
             {
                 ErrorCode = await BookingService.AddBooking(brugerBooking); //evt slet
                 Console.WriteLine("Shelter booket: " + ErrorCode);
-                bookingBesked = "Success";
+                bookingBesked = "Shelter booked!";
             }
         }
 
