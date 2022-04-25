@@ -21,7 +21,7 @@
         <b>Antal pladser:</b> @item.Property.AntalPladser
         <br />
         <!--<input type="checkbox" id="checkbox"/>-->
-        <!--<button class="VælgShelter btn btn-success" @onclick="() => VælgShelter(item)">Vælg dette shelter</button>-->
+        <button class="VælgShelter btn btn-success" @onclick="() => VælgShelter(item)">Vælg dette shelter</button>
         <br />
         <br />
 
@@ -61,7 +61,7 @@
         <br />
 
         <div class="col-md-12 mb-3">
-            <label for="ValgtShelter">ValgtShelter</label>
+            <label for="ValgtShelter">Valgt shelter:</label>
             <InputText id="ValgtShelter" @bind-Value="brugerBooking.ValgtShelter" class="form-control" />
         </div>
 
@@ -112,11 +112,11 @@
             Console.WriteLine("Shelter booket: " + ErrorCode);
         }
 
-        /*
+        
         private async Task VælgShelter(Shelter item)
         {
             brugerBooking.ValgtShelter = item.Property.Navn;
         }
-        */
+        
 
     }
