@@ -8,12 +8,11 @@ namespace test_projekt.Shared.Models
 	{
 
 		[Required]
-		[StringLength(100, ErrorMessage = "Ugyldigt navn")]
 		[BsonElement("Navn")]
 		public string Navn { get; set; }
 
 		[Required]
-		[EmailAddress(ErrorMessage = "Ugyldig email")]
+		[EmailAddress(ErrorMessage = "Ugyldig email, mail skal indeholde @")]
 		[BsonElement("Email")]
 		public string Email { get; set; }
 

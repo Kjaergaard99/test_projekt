@@ -129,6 +129,11 @@
             Console.WriteLine("Shelter ikke booket: " + ErrorCode);
             bookingBesked = "Indtast navn";
         }
+        else if (brugerBooking.Email is null)
+        {
+            Console.WriteLine("Shelter ikke booket: " + ErrorCode);
+            bookingBesked = "Ugyldig email; mails skal indeholde @)";
+        }
         else if (!brugerBooking.Email.Contains("@"))
         {
             Console.WriteLine("Shelter ikke booket: " + ErrorCode);
@@ -137,12 +142,7 @@
         else if (brugerBooking.SlutDato < brugerBooking.StartDato)
         {
             Console.WriteLine("Shelter ikke booket: " + ErrorCode);
-            bookingBesked = "Ugyldig dato";
-        }
-        else if (brugerBooking.SlutDato == brugerBooking.StartDato)
-        {
-            Console.WriteLine("Shelter ikke booket: " + ErrorCode);
-            bookingBesked = "Ugyldig dato";
+            bookingBesked = "Slut dato skal være større end start dato";
         }
         else if (brugerBooking.ValgtShelter is null)
         {
