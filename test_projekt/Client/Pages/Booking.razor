@@ -83,7 +83,7 @@
             </div>
 
             <div>
-                <label for="bookingBesked">bookingBesked = @bookingBesked</label>
+                <label class="bookingBesked" for="bookingBesked"><b>@bookingBesked</b></label>
             </div>
 
         </EditForm>
@@ -154,6 +154,8 @@
             ErrorCode = await BookingService.AddBooking(brugerBooking); //evt slet
             Console.WriteLine("Shelter booket: " + ErrorCode);
             bookingBesked = "Shelter booked!";
+            brugerBooking = new BrugerBooking();
+            EditContext = new EditContext(brugerBooking);
         }
     }
 
