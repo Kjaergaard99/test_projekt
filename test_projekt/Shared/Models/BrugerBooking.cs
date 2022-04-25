@@ -15,17 +15,21 @@ namespace test_projekt.Shared.Models
 		[BsonElement("Email")]
 		public string Email { get; set; }
 
+		[Required]
+		[BsonElement("ValgtShelter")]
+		public string ValgtShelter { get; set; }
+
 		[BsonElement("StartDato")]
 		public DateTime StartDato { get; set; } = DateTime.Now;
 
 		[BsonElement("SlutDato")]
 		public DateTime SlutDato { get; set; } = DateTime.Now;
 
-		[BsonElement("ValgtShelter")]
-		public string ValgtShelter { get; set; } = "";
 
+		/*
 		[BsonRepresentation(BsonType.ObjectId)]
 		public string? MongoId { get; set; }
+		*/
 
 		/*
 		public BrugerBooking(string navn = "", string email = "")
