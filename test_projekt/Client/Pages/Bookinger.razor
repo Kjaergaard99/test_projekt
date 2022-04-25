@@ -8,16 +8,16 @@
 <h1>Bookinger</h1>
 @foreach (var item in Bookings)
 {
-    <p>
-        <b>Navn: </b>@item.Navn
-        <br>
-        <b>Email:</b> @item.Email
-        <br>
-        <b>Shelter: </b> @item.ValgtShelter
-        <br>
-        <b>Booked:</b> Fra: @item.StartDato Til: @item.SlutDato
-        <br>
-    </p>
+<p>
+    <b>Shelter: </b> @item.ValgtShelter
+    <br>
+    <b>Navn: </b>@item.Navn
+    <br>
+    <b>Email:</b> @item.Email
+    <br>
+    <b>Booked:</b> Fra: @item.StartDato Til: @item.SlutDato
+    <br>
+</p>
 }
 @code {
     private List<BrugerBooking> Bookings = new List<BrugerBooking>();
