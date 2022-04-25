@@ -8,155 +8,160 @@
 <h1>Shelterbooking i Århus</h1>
 
 <div class="parent">
-<div class="shelters">
-    @foreach (var item in Items)
-    {
-    <table>
-        <tr>
-            <th>Navn:</th>
-            <td>@item.Property.Navn</td>
-        </tr>
-        <tr>
-            <th>Beskrivelse:</th>
-            <td>@item.Property.Beskrivelse</td>
-        </tr>
-        <tr>
-            <th>Adresse:</th>
-            <td>@item.Property.Vejnavn, @item.Property.HusNr</td>
-        </tr>
-        <tr>
-            <th>Antal Pladser:</th>
-            <td>@item.Property.AntalPladser</td>
-        </tr>
-        </table>
-        <!--<input type="checkbox" id="checkbox"/>-->
-        <button class="VælgShelter btn btn-success" @onclick="() => VælgShelter(item)">Vælg dette shelter</button>
-        <br />
-        <br />
-        
+    <div class="shelters">
+        @foreach (var item in Items)
+        {
+            <table>
+                <tr>
+                    <th>Navn:</th>
+                    <td>@item.Property.Navn</td>
+                </tr>
+                <tr>
+                    <th>Beskrivelse:</th>
+                    <td>@item.Property.Beskrivelse</td>
+                </tr>
+                <tr>
+                    <th>Adresse:</th>
+                    <td>@item.Property.Vejnavn, @item.Property.HusNr</td>
+                </tr>
+                <tr>
+                    <th>Antal Pladser:</th>
+                    <td>@item.Property.AntalPladser</td>
+                </tr>
+            </table>
+            <!--<input type="checkbox" id="checkbox"/>-->
+            <button class="VælgShelter btn btn-success" @onclick="() => VælgShelter(item)">Vælg dette shelter</button>
+            <br />
+            <br />
 
-}
+
+        }
     </div>
 
 
-<div class="booking">
-    <EditForm EditContext="@EditContext" class="row p-3">
-        <DataAnnotationsValidator />
-        <div class="col-md-12 mb-3">
-            <label for="Navn">Navn</label>
-            <InputText id="Navn" @bind-Value="brugerBooking.Navn" class="form-control" />
-            <ValidationMessage For="@(() => brugerBooking.Navn)" />
-        </div>
+    <div class="booking">
+        <EditForm EditContext="@EditContext" class="row p-3">
+            <DataAnnotationsValidator />
+            <div class="col-md-12 mb-3">
+                <label for="Navn">Navn</label>
+                <InputText id="Navn" @bind-Value="brugerBooking.Navn" class="form-control" />
+                <ValidationMessage For="@(() => brugerBooking.Navn)" />
+            </div>
 
-        <br />
-        <div class="col-md-12 mb-3">
-            <label for="Email">Email</label>
-            <InputText id="Email" @bind-Value="brugerBooking.Email" class="form-control" />
-            
+            <br />
+            <div class="col-md-12 mb-3">
+                <label for="Email">Email</label>
+                <InputText id="Email" @bind-Value="brugerBooking.Email" class="form-control" />
+                <ValidationMessage For="@(() => brugerBooking.Email)" />
 
-        </div>
+            </div>
 
-        <br />
+            <br />
 
-        <div class="col-md-6 mb-3">
-            <label for="StartDato">Start dato</label>
-            <InputDate id="StartDato" @bind-Value="brugerBooking.StartDato" class="form-control" />
-        </div>
+            <div class="col-md-6 mb-3">
+                <label for="StartDato">Start dato</label>
+                <InputDate id="StartDato" @bind-Value="brugerBooking.StartDato" class="form-control" />
+            </div>
 
-        <div class="col-md-6 mb-3">
-            <label for="SlutDato">Slut dato</label>
-            <InputDate id="SlutDato" @bind-Value="brugerBooking.SlutDato" class="form-control" />
-        </div>
-
-
-        <br />
-        <div class="col-md-12 mb-3">
-            <label for="ValgtShelter">Valgt shelter: @brugerBooking.ValgtShelter</label>
-        </div>
-        <ValidationMessage For="@(() => brugerBooking.ValgtShelter)" />
+            <div class="col-md-6 mb-3">
+                <label for="SlutDato">Slut dato</label>
+                <InputDate id="SlutDato" @bind-Value="brugerBooking.SlutDato" class="form-control" />
+            </div>
 
 
-        <br />
+            <br />
+            <div class="col-md-12 mb-3">
+                <label for="ValgtShelter">Valgt shelter: @brugerBooking.ValgtShelter</label>
+                <ValidationMessage For="@(() => brugerBooking.ValgtShelter)" />
+            </div>
 
-        <div class="col-12 mb-3">
-            <button class="btn btn-primary" @onclick="AddBookingHandler">Book shelter</button>
-        </div>
 
-        <div>
-            <label for="bookingBesked">bookingBesked = @bookingBesked</label>
-        </div>
+            <br />
 
-    </EditForm>
+            <div class="col-12 mb-3">
+                <button class="btn btn-primary" @onclick="AddBookingHandler">Book shelter</button>
+            </div>
+
+            <div>
+                <label for="bookingBesked">bookingBesked = @bookingBesked</label>
+            </div>
+
+        </EditForm>
+    </div>
 </div>
-</div>
 
-    @code {
-        private List<Shelter> Items = new List<Shelter>();
-        private EditContext EditContext;
-        private BrugerBooking brugerBooking = new BrugerBooking();
-        private int ErrorCode { get; set; } = 0;
-        private string bookingBesked = "";
-
-
-        [Inject]
-        public IShelterService Service { get; set; }
-
-        [Inject]
-        public IBookingService BookingService { get; set; }
+@code {
+    private List<Shelter> Items = new List<Shelter>();
+    private EditContext EditContext;
+    private BrugerBooking brugerBooking = new BrugerBooking();
+    private int ErrorCode { get; set; } = 0;
+    private string bookingBesked = "Udfyld venligst alle felter";
 
 
-        protected override void OnInitialized()
+    [Inject]
+    public IShelterService Service { get; set; }
+
+    [Inject]
+    public IBookingService BookingService { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        EditContext = new EditContext(brugerBooking);
+    }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        Items = (await Service.GetAllItems()).ToList();
+    }
+
+    /*private async Task AddBookingHandler(BrugerBooking brugerBooking)
+    {
+        ErrorCode = await BookingService.AddBooking(brugerBooking); //evt slet
+        Console.WriteLine("Shelter booket: " + ErrorCode);
+    }*/
+
+    private async Task AddBookingHandler()
+    {
+        if (brugerBooking.Navn is null)
         {
-            EditContext = new EditContext(brugerBooking);
+            Console.WriteLine("Shelter ikke booket: " + ErrorCode);
+            bookingBesked = "Indtast navn";
         }
-
-
-        protected override async Task OnInitializedAsync()
+        else if (!brugerBooking.Email.Contains("@"))
         {
-            Items = (await Service.GetAllItems()).ToList();
+            Console.WriteLine("Shelter ikke booket: " + ErrorCode);
+            bookingBesked = "Ugyldig email; mails skal indeholde @)";
         }
-
-        /*private async Task AddBookingHandler(BrugerBooking brugerBooking)
+        else if (brugerBooking.SlutDato < brugerBooking.StartDato)
+        {
+            Console.WriteLine("Shelter ikke booket: " + ErrorCode);
+            bookingBesked = "Ugyldig dato";
+        }
+        else if (brugerBooking.SlutDato == brugerBooking.StartDato)
+        {
+            Console.WriteLine("Shelter ikke booket: " + ErrorCode);
+            bookingBesked = "Ugyldig dato";
+        }
+        else if (brugerBooking.ValgtShelter is null)
+        {
+            Console.WriteLine("Shelter ikke booket: " + ErrorCode);
+            bookingBesked = "Vælg et shelter";
+        }
+        else
         {
             ErrorCode = await BookingService.AddBooking(brugerBooking); //evt slet
             Console.WriteLine("Shelter booket: " + ErrorCode);
-        }*/
-
-        private async Task AddBookingHandler()
-        {
-            if (brugerBooking.SlutDato <= brugerBooking.StartDato)
-            {
-                Console.WriteLine("Shelter ikke booket: " + ErrorCode);
-                bookingBesked = "Ugyldig dato";
-            }
-            else if (!brugerBooking.Email.Contains("@"))
-            {
-                Console.WriteLine("Shelter ikke booket: " + ErrorCode);
-                bookingBesked = "Ugyldig email; mails skal indeholde @)";
-            }
-            else if (brugerBooking.Navn is null)
-            {
-                Console.WriteLine("Shelter ikke booket: " + ErrorCode);
-                bookingBesked = "Indtast navn";
-            }
-            else if (brugerBooking.ValgtShelter is null)
-            {
-                Console.WriteLine("Shelter ikke booket: " + ErrorCode);
-                bookingBesked = "Vælg et shelter";
-            }
-            else
-            {
-                ErrorCode = await BookingService.AddBooking(brugerBooking); //evt slet
-                Console.WriteLine("Shelter booket: " + ErrorCode);
-                bookingBesked = "Shelter booked!";
-            }
+            bookingBesked = "Shelter booked!";
         }
-
-
-        private async Task VælgShelter(Shelter item)
-        {
-            brugerBooking.ValgtShelter = item.Property.Navn;
-        }
-
-
     }
+
+
+    private async Task VælgShelter(Shelter item)
+    {
+        brugerBooking.ValgtShelter = item.Property.Navn;
+    }
+
+
+}

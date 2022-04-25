@@ -8,10 +8,12 @@ namespace test_projekt.Shared.Models
 	{
 
 		[Required]
+		[StringLength(100, ErrorMessage = "Ugyldigt navn")]
 		[BsonElement("Navn")]
 		public string Navn { get; set; }
 
 		[Required]
+		[EmailAddress(ErrorMessage = "Ugyldig email")]
 		[BsonElement("Email")]
 		public string Email { get; set; }
 
@@ -19,6 +21,7 @@ namespace test_projekt.Shared.Models
 		[BsonElement("ValgtShelter")]
 		public string ValgtShelter { get; set; }
 
+		[Required]
 		[BsonDateTimeOptions(Kind = DateTimeKind.Local)]
 		[BsonElement("StartDato")]
 		public DateTime StartDato { get; set; } = DateTime.Now;
