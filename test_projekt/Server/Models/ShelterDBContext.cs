@@ -12,7 +12,7 @@ namespace test_projekt.Server.Models
 		{
 			string atlasConnection = "mongodb+srv://haha:haha@cluster0.uupb3.mongodb.net/test";
 			var client = new MongoClient(atlasConnection);
-			mongoDatabase = client.GetDatabase("shelterdb");
+			mongoDatabase = client.GetDatabase("shelterdb"); // gemmer connection til database i en variabel
 		}
 		public IMongoCollection<Shelter> Items
 		{

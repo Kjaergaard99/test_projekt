@@ -8,6 +8,8 @@ public interface IShelterService
 
     Task<Shelter[]?> GetAllItems(); // finder alle items i listen
 
+    // Task<int> AddShelter(Shelter shelter); // tilføjer en booking
+
     /*
     Task<int> AddShelter(Shelter shelter);
 
